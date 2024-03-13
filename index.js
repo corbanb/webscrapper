@@ -60,7 +60,7 @@ Promise.all(promises).then((values) => {
 
   const json = JSON.stringify({ articles });
 
-  fs.writeFile(filename, json, 'utf8', () => {
+  fs.writeFile(`json/${filename}`, json, 'utf8', () => {
     console.log(
       '------------------------------------------------------------------------',
     );
