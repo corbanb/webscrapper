@@ -1,7 +1,7 @@
 # Usage
 
 
-```bash
+```sh
 $ npm run start # runs demo
 $ npm run start -- lenny
 ```
