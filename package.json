@@ -10,13 +10,12 @@
   "author": "Corban Baxter <corbanb@gmail.com> (https://x4.studio/)",
   "license": "ISC",
   "dependencies": {
-    "osmosis": "1.1.10",
+    "jsdom": "24.0.0",
     "x-ray": "2.3.4"
   },
   "devDependencies": {
     "eslint": "8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
-    "eslint-plugin-import": "2.29.1",
-    "prettier": "3.2.5"
+    "eslint-plugin-import": "2.29.1"
   }
 }

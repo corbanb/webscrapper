@@ -1,4 +1,4 @@
-const x = require('x-ray')();
+const x = require('x-ray')().delay('1s');
 const fs = require('fs');
 const path = require('path');
 
@@ -54,8 +54,16 @@ urls.forEach((url) => {
 
 Promise.all(promises).then((values) => {
   values.forEach((value) => {
-    // console.log(value);
-    articles.push(value);
+    const stg = JSON.stringify(value);
+    // Remove strange encoding characters
+    let cleanedValue = stg.replace(/\\n/g, '').replace(/\\t/g, '');
+
+    cleanedValue = JSON.parse(cleanedValue);
+    // articles.push(cleanedValue);
+
+    if (cleanedValue.title && cleanedValue.article) {
+      articles.push(cleanedValue);
+    }
   });
 
   const json = JSON.stringify({ articles });
@@ -64,6 +72,7 @@ Promise.all(promises).then((values) => {
     console.log(
       '------------------------------------------------------------------------',
     );
+    console.log(`Total articles: ${articles.length} from ${urls.length} urls`);
     console.log(' ');
     console.log(' ');
     console.log('🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉');
